@@ -11,6 +11,10 @@ class File
       end
     end
 
+    def inspect
+      "#<#{self.class.to_s} dev=#{dev}, ino=#{ino}, mode=#{mode}, nlink=#{nlink}, uid=#{uid}, gid=#{gid}, rdev=#{rdev}, size=#{size}, blksize=#{blksize}, blocks=#{blocks}, atime=#{atime}, mtime=#{mtime}, ctime=#{ctime}#{", birthtime=#{birthtime}" if respond_to?(:birthtime)}>"
+    end
+
     def size?
       s = size
       s == 0 ? nil : s
